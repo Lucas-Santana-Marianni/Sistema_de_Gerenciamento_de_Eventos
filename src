@@ -1,0 +1,62 @@
+CREATE DATABASE GerenciamentoEventos;
+USE GerenciamentoEventos;
+
+CREATE TABLE Eventos (
+    EventoID INT AUTO_INCREMENT PRIMARY KEY,
+    NomeEvento VARCHAR(100) NOT NULL,
+    DataEvento DATE NOT NULL,
+    LocalEvento VARCHAR(100),
+    DescricaoEvento TEXT
+);
+
+CREATE TABLE Participantes (
+ParticipanteID INT AUTO_INCREMENT PRIMARY KEY,
+NomeParticipante VARCHAR(100) NOT NULL,
+Email VARCHAR (100) NOT NULL,
+Telefone VARCHAR (20)
+);
+
+CREATE TABLE Inscricoes (
+InscricaoID INT AUTO_INCREMENT PRIMARY KEY,
+EventoID INT,
+ParticipanteID INT,
+DataInscricao DATE NOT NULL,
+FOREIGN KEY (EventoID) REFERENCES Eventos(EventoID),
+FOREIGN KEY (ParticipanteID) REFERENCES Participantes(ParticipanteID)
+);
+
+INSERT INTO Eventos (NomeEvento, DataEvento, LocalEvento, DescricaoEvento)
+VALUES ('New Potter', '2024-09-11', 'Shopping', 'Lançamento do novo livro da série HP');
+
+INSERT INTO Participantes (NomeParticipante, Email, Telefone)
+VALUES ('Pedro lima', 'pedro.lima@gmail.com', '1234-4321');
+
+INSERT INTO Inscricoes (EventoID, ParticipanteID, DataInscricao)
+VALUES ('1','1','2024-08-11');
+
+SELECT * FROM Eventos;
+SELECT p.NomeParticipante, p.Email, p.Telefone
+FROM Inscricoes i
+JOIN Participantes p ON i.ParticipanteID = p.ParticipanteID
+WHERE i.EventoID = 1;
+
+UPDATE Eventos
+SET LocalEvento = 'Livraria 2', DataEvento = '2024-09-12'
+WHERE EventoID = 1;
+
+UPDATE Participantes
+SET Telefone = '5678-8765'
+WHERE ParticipanteID = 1;
+
+DELETE FROM Eventos WHERE DataEvento < CURDATE();
+DELETE FROM Inscricoes WHERE InscricaoID = 1;
+SELECT p.NomeParticipante, COUNT(i.EventoID) as TotalEventos
+FROM Inscricoes i
+JOIN Participantes p ON i.ParticipanteID = p.ParticipanteID
+GROUP BY p.ParticipanteID
+HAVING TotalEventos > 1;
+
+
+
+
+
