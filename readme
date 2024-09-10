@@ -1,0 +1,15 @@
+Sistema de Gerenciamento de Eventos
+
+Este projeto tem como objetivo desenvolver um sistema de gerenciamento de eventos que permite registrar, consultar, atualizar e excluir informações sobre eventos, participantes e inscrições. Utilizando comandos SQL, o sistema gerencia todos os dados relevantes para os eventos organizados por uma empresa, permitindo o controle completo de informações como participantes inscritos e detalhes dos eventos.
+
+Requisitos do Sistema
+Criação de um banco de dados chamado GerenciamentoEventos que armazena dados sobre eventos, participantes e inscrições.
+Criação de três tabelas: Eventos, Participantes, e Inscricoes.
+Funções como inserção de eventos, registro de participantes, inscrição de participantes em eventos, além de operações para consultar, atualizar e excluir dados.
+Funcionalidades:
+Criação e gerenciamento de eventos: Armazenar informações como nome do evento, data, local e descrição.
+Registro de participantes: Armazenar informações como nome, e-mail e telefone.
+Inscrições: Registrar quais participantes se inscreveram em quais eventos.
+Consultas: Realizar consultas para visualizar eventos, listar participantes de um evento específico e verificar todos os eventos de um determinado participante.
+Atualizações: Atualizar detalhes de eventos e informações de participantes.
+Exclusões: Remover eventos e cancelar inscrições.
