@@ -1,0 +1,27 @@
+
+---
+
+### .gitignore
+
+```txt
+# Ignorar arquivos do banco de dados local
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+
+# Ignorar arquivos de backup
+*.bak
+*.backup
+
+# Ignorar arquivos de configuração do sistema
+*.log
+.env
+
+# Ignorar diretórios de IDEs
+.vscode/
+.idea/
+
+# Ignorar arquivos temporários do sistema
+.DS_Store
+Thumbs.db
